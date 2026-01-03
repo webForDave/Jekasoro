@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/auth/', include('accounts.urls')),
     path('api/communities/', include('communities.urls')),
     path('api/<slug:community_slug>/posts/', include('posts.urls')),
+    path('api/<slug:community_slug>/posts/<slug:post_slug>/comments/', include('comments.urls')),
 ]
