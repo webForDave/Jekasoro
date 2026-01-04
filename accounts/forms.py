@@ -26,5 +26,5 @@ class LoginForm(AuthenticationForm):
 
 class CustomUserChange(UserChangeForm):
     class Meta:
-        fields = ['bio', 'username']
+        fields = ['profile_picture', 'bio', 'username']
         model = CustomUser

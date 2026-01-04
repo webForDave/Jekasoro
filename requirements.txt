@@ -10,6 +10,7 @@ django-extensions==4.1
 djangorestframework==3.16.1
 idna==3.11
 oauthlib==3.3.1
+pillow==12.1.0
 psycopg2-binary==2.9.11
 pycparser==2.23
 PyJWT==2.10.1

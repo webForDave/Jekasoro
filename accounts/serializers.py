@@ -21,13 +21,13 @@ class OwnerDetailsSerializer(UserDetailsSerializer):
         # communities_joined and communities_created are not fields on the User model.
         # They are gotten from the 'related_name' attribute on Foreign key and ManyToMany 
         # fields on the Community model linked to users. 
-        fields = ['email', 'username', 'bio', 'date_joined', 'communities_created', 'communities_joined']
+        fields = ['profile_picture', 'email', 'username', 'bio', 'date_joined', 'communities_created', 'communities_joined']
         model = User
 
 class RandomUserDetailsSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'bio', 'date_joined', 'communities_joined', 'communities_created']
+        fields = ['profile_picture','username', 'bio', 'date_joined', 'communities_joined', 'communities_created']
 
 class UpdateUserSerializer(ModelSerializer):
     class Meta:

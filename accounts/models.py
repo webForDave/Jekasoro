@@ -10,6 +10,7 @@ from django.utils import timezone
 from .managers import CustomUserManager
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    profile_picture = models.ImageField(upload_to='profile_pics', null=True, blank=True)
     username = models.CharField(max_length=25, null=True, blank=True)
     email = models.EmailField(unique=True)
     bio = models.CharField(max_length=100, null=True, blank=True)
