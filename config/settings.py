@@ -32,7 +32,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-8xj5^0k1u19q4+@@xc&sbde9b0wpz+z^7w_pqrl&76@-8vraq!')
 
 
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
+
 
 ALLOWED_HOSTS = []
 
@@ -99,19 +100,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jekasoro',
-        'USER': 'eniola',
-        'PASSWORD': 'dakins2004',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }}
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] = dj_database_url.config(
-        conn_max_age=500,
-        conn_health_checks=True
-    )
+# if 'DATABASE_URL' in os.environ:
+#     DATABASES['default'] = dj_database_url.config(
+#         conn_max_age=500,
+#         conn_health_checks=True
+#     )
 
 
 # Password validation
